@@ -12,15 +12,15 @@ module AOC2022
   class CalorieCounting < Day
     def setup
       input = read_input_file.chomp
-      @packs = parse_rations(input)
+      @packs = parse_rations(input).map(&:sum)
     end
 
     def part1
-      @packs.map(&:sum).max
+      @packs.max
     end
 
     def part2
-      @packs.map(&:sum).sort.reverse[0..2].sum
+      @packs.sort[-3..].sum
     end
 
     def parse_rations(input)
