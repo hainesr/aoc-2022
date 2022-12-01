@@ -19,6 +19,10 @@ module AOC2022
       @packs.map(&:sum).max
     end
 
+    def part2
+      @packs.map(&:sum).sort.reverse[0..2].sum
+    end
+
     def parse_rations(input)
       input.split("\n\n").map { |pack| pack.split.map(&:to_i) }
     end
