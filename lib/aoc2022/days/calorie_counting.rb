@@ -10,8 +10,7 @@ require 'aoc2022'
 
 module AOC2022
   class CalorieCounting < Day
-    def setup
-      input = read_input_file.chomp
+    def setup(input = read_input_file.chomp)
       @packs = parse_rations(input).map(&:sum)
     end
 

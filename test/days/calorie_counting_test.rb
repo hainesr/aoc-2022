@@ -33,9 +33,18 @@ class AOC2022::CalorieCountingTest < MiniTest::Test
 
   def setup
     @cc = AOC2022::CalorieCounting.new
+    @cc.setup(INPUT)
   end
 
   def test_parse_rations
     assert_equal(PACKS, @cc.parse_rations(INPUT))
+  end
+
+  def test_part1
+    assert_equal(24_000, @cc.part1)
+  end
+
+  def test_part2
+    assert_equal(45_000, @cc.part2)
   end
 end
