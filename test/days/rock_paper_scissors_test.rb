@@ -33,7 +33,17 @@ class AOC2022::RockPaperScissorsTest < MiniTest::Test
     assert_equal(6, @rps.play_round(ROUNDS[2]))
   end
 
+  def test_adjust_strategy
+    assert_equal([:A, :X], @rps.adjust_strategy(ROUNDS[0]))
+    assert_equal([:B, :X], @rps.adjust_strategy(ROUNDS[1]))
+    assert_equal([:C, :X], @rps.adjust_strategy(ROUNDS[2]))
+  end
+
   def test_part1
     assert_equal(15, @rps.part1)
+  end
+
+  def test_part2
+    assert_equal(12, @rps.part2)
   end
 end

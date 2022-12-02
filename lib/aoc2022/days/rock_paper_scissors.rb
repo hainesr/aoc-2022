@@ -17,12 +17,23 @@ module AOC2022
       Z: [:B, :C, 3]
     }.freeze
 
+    # Their move: [lose, draw, win]
+    STRATEGY = {
+      A: { X: :Z, Y: :X, Z: :Y },
+      B: { X: :X, Y: :Y, Z: :Z },
+      C: { X: :Y, Y: :Z, Z: :X }
+    }.freeze
+
     def setup(input = read_input_file.chomp)
       @rounds = input.split("\n").map { |round| round.split.map(&:to_sym) }
     end
 
     def part1
       @rounds.map { |round| play_round(round) }.sum
+    end
+
+    def part2
+      @rounds.map { |round| play_round(adjust_strategy(round)) }.sum
     end
 
     def play_round((them, me))
@@ -36,6 +47,10 @@ module AOC2022
       else
         0
       end + score
+    end
+
+    def adjust_strategy((them, me))
+      [them, STRATEGY[them][me]]
     end
   end
 end
