@@ -16,7 +16,8 @@ module AOC2022
 
   DAY_MAP = [
     nil, # There is no day zero!
-    'calorie_counting'
+    'calorie_counting',
+    'rock_paper_scissors'
   ].freeze
 
   def self.class_from_day(day)
