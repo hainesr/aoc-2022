@@ -21,8 +21,19 @@ module AOC2022
       @rucksacks.map { |rucksack| priority(common_item_type(rucksack)) }.sum
     end
 
+    def part2
+      total = 0
+      @rucksacks.each_slice(3) { |rucksacks| total += priority(common_item_type3(rucksacks)) }
+      total
+    end
+
     def common_item_type((first, second))
       (first - (first - second))[0]
+    end
+
+    def common_item_type3(rucksacks)
+      groups = rucksacks.map { |(first, second)| (first + second).group_by { _1 }.keys }
+      groups.flatten.group_by { _1 }.select { |_, v| v.length == 3 }.keys[0]
     end
 
     def priority(char)

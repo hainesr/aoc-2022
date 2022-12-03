@@ -62,11 +62,20 @@ class AOC2022::RucksackReorganizationTest < MiniTest::Test
     assert_equal('s', @rr.common_item_type(RUCKSACKS[5]))
   end
 
+  def test_common_item_type3
+    assert_equal('r', @rr.common_item_type3(RUCKSACKS[0..2]))
+    assert_equal('Z', @rr.common_item_type3(RUCKSACKS[3..]))
+  end
+
   def test_parse_input
     assert_equal(RUCKSACKS, @rr.instance_variable_get(:@rucksacks))
   end
 
   def test_part1
     assert_equal(157, @rr.part1)
+  end
+
+  def test_part2
+    assert_equal(70, @rr.part2)
   end
 end
