@@ -22,9 +22,9 @@ module AOC2022
     end
 
     def part2
-      total = 0
-      @rucksacks.each_slice(3) { |rucksacks| total += priority(common_item_type3(rucksacks)) }
-      total
+      @rucksacks.each_slice(3).reduce(0) do |acc, rucksacks|
+        acc + priority(common_item_type3(rucksacks))
+      end
     end
 
     def common_item_type((first, second))
