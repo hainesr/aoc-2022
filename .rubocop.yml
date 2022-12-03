@@ -48,3 +48,5 @@ Style/SymbolArray:
 
 Style/WordArray:
   MinSize: 4
+  Exclude:
+    - test/**/*.rb
