@@ -18,7 +18,8 @@ module AOC2022
     nil, # There is no day zero!
     'calorie_counting',
     'rock_paper_scissors',
-    'rucksack_reorganization'
+    'rucksack_reorganization',
+    'camp_cleanup'
   ].freeze
 
   def self.class_from_day(day)
