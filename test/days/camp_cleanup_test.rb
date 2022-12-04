@@ -46,7 +46,20 @@ class AOC2022::CampCleanupTest < MiniTest::Test
     refute(@cc.sections_covered?(RANGES[5]))
   end
 
+  def test_sections_overlap?
+    refute(@cc.sections_overlap?(RANGES[0]))
+    refute(@cc.sections_overlap?(RANGES[1]))
+    assert(@cc.sections_overlap?(RANGES[2]))
+    assert(@cc.sections_overlap?(RANGES[3]))
+    assert(@cc.sections_overlap?(RANGES[4]))
+    assert(@cc.sections_overlap?(RANGES[5]))
+  end
+
   def test_part1
     assert_equal(2, @cc.part1)
+  end
+
+  def test_part2
+    assert_equal(4, @cc.part2)
   end
 end

@@ -23,8 +23,16 @@ module AOC2022
       @ranges.count { |sections| sections_covered?(sections) }
     end
 
+    def part2
+      @ranges.count { |sections| sections_overlap?(sections) }
+    end
+
     def sections_covered?((first, second))
       first.cover?(second) || second.cover?(first)
+    end
+
+    def sections_overlap?((first, second))
+      first.min < second.min ? first.max >= second.min : second.max >= first.min
     end
   end
 end
