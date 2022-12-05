@@ -19,7 +19,8 @@ module AOC2022
     'calorie_counting',
     'rock_paper_scissors',
     'rucksack_reorganization',
-    'camp_cleanup'
+    'camp_cleanup',
+    'supply_stacks'
   ].freeze
 
   def self.class_from_day(day)
