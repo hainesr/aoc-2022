@@ -17,16 +17,21 @@ module AOC2022
     end
 
     def part1
-      @moves.each { move(_1) }
+      process_moves
+    end
 
-      @stacks.map do |stack|
+    def process_moves(cm9001: false)
+      stacks = @stacks.map(&:dup)
+      @moves.each { move(stacks, _1, cm9001:) }
+
+      stacks.map do |stack|
         stack[-1]
       end.join
     end
 
-    def move((num, from, to))
-      crates = @stacks[from - 1].pop(num)
-      @stacks[to - 1] += crates.reverse
+    def move(stacks = @stacks, (num, from, to), cm9001: false)
+      crates = stacks[from - 1].pop(num)
+      stacks[to - 1] += (cm9001 ? crates : crates.reverse)
     end
 
     def read_stacks(input)
