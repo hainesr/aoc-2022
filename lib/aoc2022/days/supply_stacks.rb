@@ -20,6 +20,10 @@ module AOC2022
       process_moves
     end
 
+    def part2
+      process_moves(cm9001: true)
+    end
+
     def process_moves(cm9001: false)
       stacks = @stacks.map(&:dup)
       @moves.each { move(stacks, _1, cm9001:) }

@@ -41,9 +41,33 @@ class AOC2022::SupplyStacksTest < MiniTest::Test
       [['Z', 'N', 'D'], ['M', 'C'], ['P']],
       @ss.instance_variable_get(:@stacks)
     )
+
+    @ss.move(MOVES[1])
+    assert_equal(
+      [[], ['M', 'C'], ['P', 'D', 'N', 'Z']],
+      @ss.instance_variable_get(:@stacks)
+    )
+  end
+
+  def test_move_cm9001
+    @ss.move(MOVES[0], cm9001: true)
+    assert_equal(
+      [['Z', 'N', 'D'], ['M', 'C'], ['P']],
+      @ss.instance_variable_get(:@stacks)
+    )
+
+    @ss.move(MOVES[1], cm9001: true)
+    assert_equal(
+      [[], ['M', 'C'], ['P', 'Z', 'N', 'D']],
+      @ss.instance_variable_get(:@stacks)
+    )
   end
 
   def test_part1
     assert_equal('CMZ', @ss.part1)
+  end
+
+  def test_part2
+    assert_equal('MCD', @ss.part2)
   end
 end
