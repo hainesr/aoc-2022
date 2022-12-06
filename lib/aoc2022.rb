@@ -20,7 +20,8 @@ module AOC2022
     'rock_paper_scissors',
     'rucksack_reorganization',
     'camp_cleanup',
-    'supply_stacks'
+    'supply_stacks',
+    'tuning_trouble'
   ].freeze
 
   def self.class_from_day(day)
