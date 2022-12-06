@@ -15,14 +15,18 @@ module AOC2022
     end
 
     def part1
-      @input.each_cons(4).with_index do |code, i|
-        return i + 4 if code.uniq.length == 4
-      end
+      detect(4)
     end
 
     def part2
-      @input.each_cons(14).with_index do |code, i|
-        return i + 14 if code.uniq.length == 14
+      detect(14)
+    end
+
+    private
+
+    def detect(size)
+      @input.each_cons(size).with_index do |code, i|
+        return i + size if code.uniq.length == size
       end
     end
   end
