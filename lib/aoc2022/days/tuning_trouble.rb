@@ -19,5 +19,11 @@ module AOC2022
         return i + 4 if code.uniq.length == 4
       end
     end
+
+    def part2
+      @input.each_cons(14).with_index do |code, i|
+        return i + 14 if code.uniq.length == 14
+      end
+    end
   end
 end
