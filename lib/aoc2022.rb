@@ -21,7 +21,9 @@ module AOC2022
     'rucksack_reorganization',
     'camp_cleanup',
     'supply_stacks',
-    'tuning_trouble'
+    'tuning_trouble',
+    nil,
+    'treetop_tree_house'
   ].freeze
 
   def self.class_from_day(day)
