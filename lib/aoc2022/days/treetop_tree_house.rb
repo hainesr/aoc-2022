@@ -11,16 +11,17 @@ require 'aoc2022'
 module AOC2022
   class TreetopTreeHouse < Day
     def setup(input = read_input_file.chomp)
-      @map = read_map(input)
-      process_map(@map)
+      map = read_map(input)
+      process_map(map)
+      @map = map.flatten
     end
 
     def part1
-      @map.flatten.count { _1[:visible] }
+      @map.count { _1[:visible] }
     end
 
     def part2
-      @map.flatten.max_by { _1[:score] }[:score]
+      @map.max_by { _1[:score] }[:score]
     end
 
     def process_map(map)

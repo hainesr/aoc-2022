@@ -19,37 +19,31 @@ class AOC2022::TreetopTreeHouseTest < MiniTest::Test
   EOI
 
   MAP = [
-    [
-      { height: 3, visible: true, score: 0 },
-      { height: 0, visible: true, score: 0 },
-      { height: 3, visible: true, score: 0 },
-      { height: 7, visible: true, score: 0 },
-      { height: 3, visible: true, score: 0 }
-    ], [
-      { height: 2, visible: true, score: 0 },
-      { height: 5, visible: true, score: 1 },
-      { height: 5, visible: true, score: 4 },
-      { height: 1, visible: false, score: 1 },
-      { height: 2, visible: true, score: 0 }
-    ], [
-      { height: 6, visible: true, score: 0 },
-      { height: 5, visible: true, score: 6 },
-      { height: 3, visible: false, score: 1 },
-      { height: 3, visible: true, score: 2 },
-      { height: 2, visible: true, score: 0 }
-    ], [
-      { height: 3, visible: true, score: 0 },
-      { height: 3, visible: false, score: 1 },
-      { height: 5, visible: true, score: 8 },
-      { height: 4, visible: false, score: 3 },
-      { height: 9, visible: true, score: 0 }
-    ], [
-      { height: 3, visible: true, score: 0 },
-      { height: 5, visible: true, score: 0 },
-      { height: 3, visible: true, score: 0 },
-      { height: 9, visible: true, score: 0 },
-      { height: 0, visible: true, score: 0 }
-    ]
+    { height: 3, visible: true, score: 0 },
+    { height: 0, visible: true, score: 0 },
+    { height: 3, visible: true, score: 0 },
+    { height: 7, visible: true, score: 0 },
+    { height: 3, visible: true, score: 0 },
+    { height: 2, visible: true, score: 0 },
+    { height: 5, visible: true, score: 1 },
+    { height: 5, visible: true, score: 4 },
+    { height: 1, visible: false, score: 1 },
+    { height: 2, visible: true, score: 0 },
+    { height: 6, visible: true, score: 0 },
+    { height: 5, visible: true, score: 6 },
+    { height: 3, visible: false, score: 1 },
+    { height: 3, visible: true, score: 2 },
+    { height: 2, visible: true, score: 0 },
+    { height: 3, visible: true, score: 0 },
+    { height: 3, visible: false, score: 1 },
+    { height: 5, visible: true, score: 8 },
+    { height: 4, visible: false, score: 3 },
+    { height: 9, visible: true, score: 0 },
+    { height: 3, visible: true, score: 0 },
+    { height: 5, visible: true, score: 0 },
+    { height: 3, visible: true, score: 0 },
+    { height: 9, visible: true, score: 0 },
+    { height: 0, visible: true, score: 0 }
   ].freeze
 
   def setup
