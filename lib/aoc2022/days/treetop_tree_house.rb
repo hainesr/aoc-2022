@@ -19,12 +19,17 @@ module AOC2022
       @map.flatten.count { _1[:visible] }
     end
 
+    def part2
+      @map.flatten.max_by { _1[:score] }[:score]
+    end
+
     def process_map(map)
       [map, map.transpose].each do |grid|
         grid.each do |row|
           [row, row.reverse].each do |r|
             r.reduce([]) do |acc, tree|
               tree[:visible] = true if tree[:height] > (acc.max || -1)
+              tree[:score] *= ((acc.reverse.index { _1 >= tree[:height] } || (acc.size - 1)) + 1)
               acc << tree[:height]
             end
           end
@@ -37,7 +42,7 @@ module AOC2022
     def read_map(input)
       input.each_line(chomp: true).map do |line|
         line.chars.map do |char|
-          { height: char.to_i, visible: false }
+          { height: char.to_i, visible: false, score: 1 }
         end
       end
     end

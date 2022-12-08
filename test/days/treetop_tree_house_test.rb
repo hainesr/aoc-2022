@@ -20,20 +20,35 @@ class AOC2022::TreetopTreeHouseTest < MiniTest::Test
 
   MAP = [
     [
-      { height: 3, visible: true }, { height: 0, visible: true },
-      { height: 3, visible: true }, { height: 7, visible: true }, { height: 3, visible: true }
+      { height: 3, visible: true, score: 0 },
+      { height: 0, visible: true, score: 0 },
+      { height: 3, visible: true, score: 0 },
+      { height: 7, visible: true, score: 0 },
+      { height: 3, visible: true, score: 0 }
     ], [
-      { height: 2, visible: true }, { height: 5, visible: true },
-      { height: 5, visible: true }, { height: 1, visible: false }, { height: 2, visible: true }
+      { height: 2, visible: true, score: 0 },
+      { height: 5, visible: true, score: 1 },
+      { height: 5, visible: true, score: 4 },
+      { height: 1, visible: false, score: 1 },
+      { height: 2, visible: true, score: 0 }
     ], [
-      { height: 6, visible: true }, { height: 5, visible: true },
-      { height: 3, visible: false }, { height: 3, visible: true }, { height: 2, visible: true }
+      { height: 6, visible: true, score: 0 },
+      { height: 5, visible: true, score: 6 },
+      { height: 3, visible: false, score: 1 },
+      { height: 3, visible: true, score: 2 },
+      { height: 2, visible: true, score: 0 }
     ], [
-      { height: 3, visible: true }, { height: 3, visible: false },
-      { height: 5, visible: true }, { height: 4, visible: false }, { height: 9, visible: true }
+      { height: 3, visible: true, score: 0 },
+      { height: 3, visible: false, score: 1 },
+      { height: 5, visible: true, score: 8 },
+      { height: 4, visible: false, score: 3 },
+      { height: 9, visible: true, score: 0 }
     ], [
-      { height: 3, visible: true }, { height: 5, visible: true },
-      { height: 3, visible: true }, { height: 9, visible: true }, { height: 0, visible: true }
+      { height: 3, visible: true, score: 0 },
+      { height: 5, visible: true, score: 0 },
+      { height: 3, visible: true, score: 0 },
+      { height: 9, visible: true, score: 0 },
+      { height: 0, visible: true, score: 0 }
     ]
   ].freeze
 
@@ -48,5 +63,9 @@ class AOC2022::TreetopTreeHouseTest < MiniTest::Test
 
   def test_part1
     assert_equal(21, @tth.part1)
+  end
+
+  def test_part2
+    assert_equal(8, @tth.part2)
   end
 end
