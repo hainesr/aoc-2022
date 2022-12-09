@@ -23,7 +23,8 @@ module AOC2022
     'supply_stacks',
     'tuning_trouble',
     'no_space_left_on_device',
-    'treetop_tree_house'
+    'treetop_tree_house',
+    'rope_bridge'
   ].freeze
 
   def self.class_from_day(day)
