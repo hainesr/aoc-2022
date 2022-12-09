@@ -22,7 +22,7 @@ module AOC2022
     'camp_cleanup',
     'supply_stacks',
     'tuning_trouble',
-    nil,
+    'no_space_left_on_device',
     'treetop_tree_house'
   ].freeze
 
