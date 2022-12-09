@@ -41,13 +41,6 @@ class AOC2022::NoSpaceLeftOnDeviceTest < MiniTest::Test
     @nslod.setup(INPUT)
   end
 
-  def test_tree_size
-    tree = @nslod.instance_variable_get(:@tree)
-    assert_equal(48_381_165, @nslod.tree_size(tree))
-    assert_equal(584, @nslod.tree_size(tree[:dirs]['a'][:dirs]['e']))
-    assert_equal(94_853, @nslod.tree_size(tree[:dirs]['a']))
-  end
-
   def test_part1
     assert_equal(95_437, @nslod.part1)
   end

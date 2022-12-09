@@ -14,26 +14,21 @@ module AOC2022
     SPACE_REQRD = 30_000_000
 
     def setup(input = read_input_file.chomp)
-      @tree = read_tree(input)
+      tree = read_tree(input)
+      @dir_sizes = all_dirs(tree).map { tree_size(_1) }
     end
 
     def part1
-      all_dirs(@tree).reduce(0) do |acc, dir|
-        size = tree_size(dir)
-        size <= 100_000 ? acc + size : acc
-      end
+      @dir_sizes.select { _1 <= 100_000 }.sum
     end
 
     def part2
-      space_needed = SPACE_REQRD - (TOTAL_SPACE - tree_size(@tree))
-
-      all_dirs(@tree).map do |dir|
-        tree_size(dir) - space_needed
-      end.select(&:positive?).min + space_needed
+      space_needed = SPACE_REQRD - (TOTAL_SPACE - @dir_sizes.first)
+      @dir_sizes.map { _1 - space_needed }.select(&:positive?).min + space_needed
     end
 
     def all_dirs(tree, dirs = [tree])
-      tree[:dirs].each do |_, dir|
+      tree[:dirs].each_value do |dir|
         dirs << dir
         all_dirs(dir, dirs)
       end
