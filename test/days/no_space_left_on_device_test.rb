@@ -51,4 +51,8 @@ class AOC2022::NoSpaceLeftOnDeviceTest < MiniTest::Test
   def test_part1
     assert_equal(95_437, @nslod.part1)
   end
+
+  def test_part2
+    assert_equal(24_933_642, @nslod.part2)
+  end
 end

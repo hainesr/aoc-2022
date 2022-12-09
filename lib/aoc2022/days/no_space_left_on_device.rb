@@ -10,6 +10,9 @@ require 'aoc2022'
 
 module AOC2022
   class NoSpaceLeftOnDevice < Day
+    TOTAL_SPACE = 70_000_000
+    SPACE_REQRD = 30_000_000
+
     def setup(input = read_input_file.chomp)
       @tree = read_tree(input)
     end
@@ -19,6 +22,14 @@ module AOC2022
         size = tree_size(dir)
         size <= 100_000 ? acc + size : acc
       end
+    end
+
+    def part2
+      space_needed = SPACE_REQRD - (TOTAL_SPACE - tree_size(@tree))
+
+      all_dirs(@tree).map do |dir|
+        tree_size(dir) - space_needed
+      end.select(&:positive?).min + space_needed
     end
 
     def all_dirs(tree, dirs = [tree])
