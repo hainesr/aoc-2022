@@ -23,39 +23,49 @@ class AOC2022::RopeBridgeTest < MiniTest::Test
 
   def setup
     @rb = AOC2022::RopeBridge.new
-    @rb.setup(INPUT)
   end
 
   def test_read_moves
-    assert_equal(24, @rb.moves.length)
-    assert_equal([1, 0], @rb.moves[0])
-    assert_equal([0, 1], @rb.moves[4])
-    assert_equal([-1, 0], @rb.moves[-3])
+    moves = @rb.read_moves(INPUT)
+    assert_equal(24, moves.length)
+    assert_equal([1, 0], moves[0])
+    assert_equal([0, 1], moves[4])
+    assert_equal([-1, 0], moves[-3])
   end
 
   def test_move
-    @rb.move(@rb.moves[0])
-    assert_equal([1, 0], @rb.head)
-    assert_equal([0, 0], @rb.tail)
-    assert_equal({ [0, 0] => 1 }, @rb.tail_visited)
+    moves = @rb.read_moves(INPUT)
+    rope = [[0, 0]] * AOC2022::RopeBridge::ROPE_LENGTH
+    tail_visited = [Hash.new(0), Hash.new(0)]
 
-    @rb.move(@rb.moves[1])
-    assert_equal([2, 0], @rb.head)
-    assert_equal([1, 0], @rb.tail)
-    assert_equal({ [0, 0] => 1, [1, 0] => 1 }, @rb.tail_visited)
+    @rb.move(rope, moves[0], tail_visited)
+    assert_equal([1, 0], rope[0])
+    assert_equal([0, 0], rope[1])
+    assert_equal([{ [0, 0] => 1 }, { [0, 0] => 1 }], tail_visited)
 
-    @rb.move(@rb.moves[4])
-    assert_equal([2, 1], @rb.head)
-    assert_equal([1, 0], @rb.tail)
-    assert_equal({ [0, 0] => 1, [1, 0] => 1 }, @rb.tail_visited)
+    @rb.move(rope, moves[1], tail_visited)
+    assert_equal([2, 0], rope[0])
+    assert_equal([1, 0], rope[1])
+    assert_equal([{ [0, 0] => 1, [1, 0] => 1 }, { [0, 0] => 2 }], tail_visited)
 
-    @rb.move(@rb.moves[5])
-    assert_equal([2, 2], @rb.head)
-    assert_equal([2, 1], @rb.tail)
-    assert_equal({ [0, 0] => 1, [1, 0] => 1, [2, 1] => 1 }, @rb.tail_visited)
+    @rb.move(rope, moves[4], tail_visited)
+    assert_equal([2, 1], rope[0])
+    assert_equal([1, 0], rope[1])
+    assert_equal([{ [0, 0] => 1, [1, 0] => 2 }, { [0, 0] => 3 }], tail_visited)
+
+    @rb.move(rope, moves[5], tail_visited)
+    assert_equal([2, 2], rope[0])
+    assert_equal([2, 1], rope[1])
+    assert_equal([{ [0, 0] => 1, [1, 0] => 2, [2, 1] => 1 }, { [0, 0] => 4 }], tail_visited)
   end
 
   def test_part1
+    @rb.setup(INPUT)
     assert_equal(13, @rb.part1)
+  end
+
+  def test_part2
+    @rb.setup(INPUT)
+    assert_equal(1, @rb.part2)
   end
 end

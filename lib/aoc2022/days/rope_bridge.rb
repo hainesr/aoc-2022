@@ -17,39 +17,37 @@ module AOC2022
       'D' => [0, -1]
     }.freeze
 
-    attr_reader :head, :moves, :tail, :tail_visited
+    ROPE_LENGTH = 10
+    TAIL_LENGTH = ROPE_LENGTH - 1
 
     def setup(input = read_input_file.chomp)
-      @moves = read_moves(input)
-      @head = [0, 0]
-      @tail = [0, 0]
-      @tail_visited = Hash.new(0)
-      @tail_visited[[0, 0]] = 1
+      moves = read_moves(input)
+      rope = [[0, 0]] * ROPE_LENGTH
+      @tail_visited = [Hash.new(0), Hash.new(0)]
+
+      moves.each { |move| move(rope, move, @tail_visited) }
     end
 
     def part1
-      @moves.each { |move| move(move) }
-      @tail_visited.keys.length
+      @tail_visited[0].keys.length
     end
 
-    def move(head_move)
-      @head = [@head[0] + head_move[0], @head[1] + head_move[1]]
-      dist = [@head[0] - @tail[0], @head[1] - @tail[1]]
-      return if dist.map(&:abs).max < 2
+    def part2
+      @tail_visited[1].keys.length
+    end
 
-      tail_move = dist.map do |d|
-        case d
-        when -2
-          -1
-        when 2
-          1
-        else
-          d
-        end
+    def move(rope, head_move, visited) # rubocop:disable Metrics/AbcSize
+      rope[0] = [rope[0][0] + head_move[0], rope[0][1] + head_move[1]]
+      rope[1..].each.with_index do |tail, i|
+        dist = [rope[i][0] - tail[0], rope[i][1] - tail[1]]
+        next if dist.map(&:abs).max < 2
+
+        tail_move = tail_move(dist)
+        rope[i + 1] = [tail[0] + tail_move[0], tail[1] + tail_move[1]]
       end
 
-      @tail = [@tail[0] + tail_move[0], @tail[1] + tail_move[1]]
-      @tail_visited[@tail] += 1
+      visited[0][rope[1]] += 1
+      visited[1][rope[TAIL_LENGTH]] += 1
     end
 
     def read_moves(input)
@@ -61,6 +59,21 @@ module AOC2022
       end
 
       moves
+    end
+
+    private
+
+    def tail_move(offset)
+      offset.map do |d|
+        case d
+        when -2
+          -1
+        when 2
+          1
+        else
+          d
+        end
+      end
     end
   end
 end
