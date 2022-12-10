@@ -9,7 +9,7 @@
 require 'test_helper'
 require 'aoc2022/days/supply_stacks'
 
-class AOC2022::SupplyStacksTest < MiniTest::Test
+class AOC2022::SupplyStacksTest < Minitest::Test
   INPUT = <<~EOI
         [D]
     [N] [C]

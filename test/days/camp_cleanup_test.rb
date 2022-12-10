@@ -9,7 +9,7 @@
 require 'test_helper'
 require 'aoc2022/days/camp_cleanup'
 
-class AOC2022::CampCleanupTest < MiniTest::Test
+class AOC2022::CampCleanupTest < Minitest::Test
   INPUT = <<~EOI
     2-4,6-8
     2-3,4-5

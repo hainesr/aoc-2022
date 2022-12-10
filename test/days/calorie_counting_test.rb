@@ -9,7 +9,7 @@
 require 'test_helper'
 require 'aoc2022/days/calorie_counting'
 
-class AOC2022::CalorieCountingTest < MiniTest::Test
+class AOC2022::CalorieCountingTest < Minitest::Test
   INPUT = <<~EOI
     1000
     2000

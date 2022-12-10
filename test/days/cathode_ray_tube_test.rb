@@ -9,7 +9,7 @@
 require 'test_helper'
 require 'aoc2022/days/cathode_ray_tube'
 
-class AOC2022::CathodeRayTubeTest < MiniTest::Test
+class AOC2022::CathodeRayTubeTest < Minitest::Test
   INPUT = <<~EOI
     noop
     addx 3

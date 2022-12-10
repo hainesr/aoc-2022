@@ -9,7 +9,7 @@
 require 'test_helper'
 require 'aoc2022/days/rock_paper_scissors'
 
-class AOC2022::RockPaperScissorsTest < MiniTest::Test
+class AOC2022::RockPaperScissorsTest < Minitest::Test
   INPUT = <<~EOI
     A Y
     B X

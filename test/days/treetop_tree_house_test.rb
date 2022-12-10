@@ -9,7 +9,7 @@
 require 'test_helper'
 require 'aoc2022/days/treetop_tree_house'
 
-class AOC2022::TreetopTreeHouseTest < MiniTest::Test
+class AOC2022::TreetopTreeHouseTest < Minitest::Test
   INPUT = <<~EOI
     30373
     25512

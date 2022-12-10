@@ -9,7 +9,7 @@
 require 'test_helper'
 require 'aoc2022/days/tuning_trouble'
 
-class AOC2022::TuningTroubleTest < MiniTest::Test
+class AOC2022::TuningTroubleTest < Minitest::Test
   INPUT1 = 'mjqjpqmgbljsphdztnvjfqwrcgsmlb'
 
   def setup

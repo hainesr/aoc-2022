@@ -9,7 +9,7 @@
 require 'test_helper'
 require 'aoc2022/days/rucksack_reorganization'
 
-class AOC2022::RucksackReorganizationTest < MiniTest::Test
+class AOC2022::RucksackReorganizationTest < Minitest::Test
   INPUT = <<~EOI
     vJrwpWtwJgWrhcsFMMfFFhFp
     jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL

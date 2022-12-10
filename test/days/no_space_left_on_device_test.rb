@@ -9,7 +9,7 @@
 require 'test_helper'
 require 'aoc2022/days/no_space_left_on_device'
 
-class AOC2022::NoSpaceLeftOnDeviceTest < MiniTest::Test
+class AOC2022::NoSpaceLeftOnDeviceTest < Minitest::Test
   INPUT = <<~EOI
     $ cd /
     $ ls

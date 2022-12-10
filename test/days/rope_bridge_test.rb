@@ -9,7 +9,7 @@
 require 'test_helper'
 require 'aoc2022/days/rope_bridge'
 
-class AOC2022::RopeBridgeTest < MiniTest::Test
+class AOC2022::RopeBridgeTest < Minitest::Test
   INPUT = <<~EOI
     R 4
     U 4
