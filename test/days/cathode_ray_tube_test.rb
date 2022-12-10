@@ -16,6 +16,15 @@ class AOC2022::CathodeRayTubeTest < MiniTest::Test
     addx -5
   EOI
 
+  FRAMEBUFFER = <<~EOF
+    ##..##..##..##..##..##..##..##..##..##..
+    ###...###...###...###...###...###...###.
+    ####....####....####....####....####....
+    #####.....#####.....#####.....#####.....
+    ######......######......######......####
+    #######.......#######.......#######.....
+  EOF
+
   def setup
     @crt = AOC2022::CathodeRayTube.new
   end
@@ -34,6 +43,12 @@ class AOC2022::CathodeRayTubeTest < MiniTest::Test
       { 20 => 420, 60 => 1140, 100 => 1800, 140 => 2940, 180 => 2880, 220 => 3960 },
       strengths
     )
+  end
+
+  def test_draw_framebuffer
+    code = @crt.read_instructions(BIG_INPUT)
+    framebuffer = @crt.fill_framebuffer(code)
+    assert_equal(FRAMEBUFFER, @crt.draw_framebuffer(framebuffer))
   end
 
   def test_part1
