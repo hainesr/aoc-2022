@@ -24,7 +24,8 @@ module AOC2022
     'tuning_trouble',
     'no_space_left_on_device',
     'treetop_tree_house',
-    'rope_bridge'
+    'rope_bridge',
+    'cathode_ray_tube'
   ].freeze
 
   def self.class_from_day(day)
