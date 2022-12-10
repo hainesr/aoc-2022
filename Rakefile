@@ -7,6 +7,7 @@
 # Public Domain
 
 require 'rake/testtask'
+require 'rubocop/rake_task'
 
 task default: :test
 
@@ -27,3 +28,5 @@ task :run do
   end
   exit
 end
+
+RuboCop::RakeTask.new
