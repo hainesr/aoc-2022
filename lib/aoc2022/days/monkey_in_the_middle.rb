@@ -22,19 +22,25 @@ module AOC2022
       @monkeys.map { _1[:inspected] }.sort[-2..].reduce(&:*)
     end
 
-    def round(monkeys)
+    def round(monkeys, modulus: false)
       monkeys.length.times do |i|
-        monkey_turn(monkeys, i)
+        monkey_turn(monkeys, i, modulus:)
       end
     end
 
-    def monkey_turn(monkeys, num)
+    def monkey_turn(monkeys, num, modulus: false)
       monkey = monkeys[num]
 
       monkey[:items].length.times do
         item = monkey[:items].shift
+        worry = item.send(monkey[:op][0], monkey[:op][1])
 
-        worry = item.send(monkey[:op][0], monkey[:op][1]) / 3
+        if modulus
+          worry %= modulus
+        else
+          worry /= 3
+        end
+
         if (worry % monkey[:test]).zero?
           monkeys[monkey[:if_true]][:items] << worry
         else
