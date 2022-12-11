@@ -11,15 +11,17 @@ require 'aoc2022'
 module AOC2022
   class MonkeyInTheMiddle < Day
     def setup(input = read_input_file.chomp)
-      @monkeys = parse_monkeys(input)
+      @input = input
     end
 
     def part1
+      monkeys = parse_monkeys(@input)
+
       20.times do
-        round(@monkeys)
+        round(monkeys)
       end
 
-      @monkeys.map { _1[:inspected] }.sort[-2..].reduce(&:*)
+      monkeys.map { _1[:inspected] }.sort[-2..].reduce(&:*)
     end
 
     def round(monkeys, modulus: false)

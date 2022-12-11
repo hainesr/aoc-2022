@@ -42,6 +42,7 @@ class AOC2022::MonkeyInTheMiddleTest < Minitest::Test
 
   def setup
     @mm = AOC2022::MonkeyInTheMiddle.new
+    @mm.setup(INPUT)
   end
 
   def test_parse_monkeys
@@ -95,7 +96,6 @@ class AOC2022::MonkeyInTheMiddleTest < Minitest::Test
   end
 
   def test_part1
-    @mm.setup(INPUT)
     assert_equal(10_605, @mm.part1)
   end
 end
