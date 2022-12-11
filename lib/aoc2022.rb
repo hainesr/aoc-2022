@@ -25,7 +25,8 @@ module AOC2022
     'no_space_left_on_device',
     'treetop_tree_house',
     'rope_bridge',
-    'cathode_ray_tube'
+    'cathode_ray_tube',
+    'monkey_in_the_middle'
   ].freeze
 
   def self.class_from_day(day)
