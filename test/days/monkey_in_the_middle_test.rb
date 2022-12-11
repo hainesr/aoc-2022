@@ -98,4 +98,8 @@ class AOC2022::MonkeyInTheMiddleTest < Minitest::Test
   def test_part1
     assert_equal(10_605, @mm.part1)
   end
+
+  def test_part2
+    assert_equal(2_713_310_158, @mm.part2)
+  end
 end

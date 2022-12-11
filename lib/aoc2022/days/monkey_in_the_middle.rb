@@ -24,6 +24,17 @@ module AOC2022
       monkeys.map { _1[:inspected] }.sort[-2..].reduce(&:*)
     end
 
+    def part2
+      monkeys = parse_monkeys(@input)
+      mod = monkeys.map { _1[:test] }.reduce(&:*)
+
+      10_000.times do
+        round(monkeys, modulus: mod)
+      end
+
+      monkeys.map { _1[:inspected] }.sort[-2..].reduce(&:*)
+    end
+
     def round(monkeys, modulus: false)
       monkeys.length.times do |i|
         monkey_turn(monkeys, i, modulus:)
