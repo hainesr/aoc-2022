@@ -26,7 +26,8 @@ module AOC2022
     'treetop_tree_house',
     'rope_bridge',
     'cathode_ray_tube',
-    'monkey_in_the_middle'
+    'monkey_in_the_middle',
+    'hill_climbing_algorithm'
   ].freeze
 
   def self.class_from_day(day)
