@@ -19,6 +19,12 @@ module AOC2022
       climb(@start, @finish, @map)
     end
 
+    def part2
+      (0...@map.length).map do |y|
+        climb([0, y], @finish, @map)
+      end.min
+    end
+
     def climb(start, finish, map)
       max_x = map[0].length - 1
       max_y = map.length - 1

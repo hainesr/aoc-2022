@@ -47,4 +47,9 @@ class AOC2022::HillClimbingAlgorithmTest < Minitest::Test
     @hca.setup(INPUT)
     assert_equal(31, @hca.part1)
   end
+
+  def test_part2
+    @hca.setup(INPUT)
+    assert_equal(29, @hca.part2)
+  end
 end
