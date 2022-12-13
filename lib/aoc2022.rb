@@ -27,7 +27,8 @@ module AOC2022
     'rope_bridge',
     'cathode_ray_tube',
     'monkey_in_the_middle',
-    'hill_climbing_algorithm'
+    'hill_climbing_algorithm',
+    'distress_signal'
   ].freeze
 
   def self.class_from_day(day)
