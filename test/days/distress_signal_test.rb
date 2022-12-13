@@ -36,6 +36,25 @@ class AOC2022::DistressSignalTest < Minitest::Test
     [1,[2,[3,[4,[5,6,0]]]],8,9]
   EOI
 
+  SORTED = [
+    [],
+    [[]],
+    [[[]]],
+    [1, 1, 3, 1, 1],
+    [1, 1, 5, 1, 1],
+    [[1], [2, 3, 4]],
+    [1, [2, [3, [4, [5, 6, 0]]]], 8, 9],
+    [1, [2, [3, [4, [5, 6, 7]]]], 8, 9],
+    [[1], 4],
+    [3],
+    [[4, 4], 4, 4],
+    [[4, 4], 4, 4, 4],
+    [7, 7, 7],
+    [7, 7, 7, 7],
+    [[8, 7, 6]],
+    [9]
+  ].freeze
+
   def setup
     @ds = AOC2022::DistressSignal.new
   end
@@ -80,8 +99,18 @@ class AOC2022::DistressSignalTest < Minitest::Test
     refute(@ds.ordered?(pairs[7]))
   end
 
+  def test_sorted
+    packets = @ds.read_pairs(INPUT).flatten(1)
+    assert_equal(SORTED, packets.sort)
+  end
+
   def test_part1
     @ds.setup(INPUT)
     assert_equal(13, @ds.part1)
+  end
+
+  def test_part2
+    @ds.setup(INPUT)
+    assert_equal(140, @ds.part2)
   end
 end
