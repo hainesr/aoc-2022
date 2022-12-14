@@ -28,7 +28,8 @@ module AOC2022
     'cathode_ray_tube',
     'monkey_in_the_middle',
     'hill_climbing_algorithm',
-    'distress_signal'
+    'distress_signal',
+    'regolith_reservoir'
   ].freeze
 
   def self.class_from_day(day)
