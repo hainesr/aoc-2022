@@ -18,17 +18,32 @@ module AOC2022
     end
 
     def part1
+      map = @map.dup
       u = 0
 
-      u += 1 while drop(ENTRY_POINT, @map, @map_bottom)
+      u += 1 while drop(ENTRY_POINT, map, @map_bottom)
 
       u
     end
 
-    def drop((x, y), map, bottom)
+    def part2
+      map = @map.dup
+      map.default_proc = proc do |h, (x, y)|
+        h[[x, y]] = (y > (@map_bottom + 1))
+      end
+      u = 0
+
+      u += 1 while drop(ENTRY_POINT, map, @map_bottom, part1: false)
+
+      u
+    end
+
+    def drop((x, y), map, bottom, part1: true)
+      return false if map[ENTRY_POINT]
+
       loop do
         loop do
-          return false if y == bottom
+          return false if part1 && y == bottom
           break if map[[x, (y + 1)]]
 
           y += 1

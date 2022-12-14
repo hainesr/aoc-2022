@@ -61,4 +61,9 @@ class AOC2022::RegolithReservoirTest < Minitest::Test
     @rr.setup(INPUT)
     assert_equal(24, @rr.part1)
   end
+
+  def test_part2
+    @rr.setup(INPUT)
+    assert_equal(93, @rr.part2)
+  end
 end
