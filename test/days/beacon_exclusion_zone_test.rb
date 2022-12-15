@@ -32,24 +32,25 @@ class AOC2022::BeaconExclusionZoneTest < Minitest::Test
   end
 
   def test_read_map
-    map = @bez.read_map(INPUT)
+    sensors, beacons = @bez.read_map(INPUT)
 
-    assert_equal([2, 18], map[0][0])
-    assert_equal([-2, 15], map[0][1])
-    assert_equal(7, map[0][2])
+    assert_equal(14, sensors.length)
+    assert_equal(6, beacons.length)
 
-    assert_equal([8, 7], map[6][0])
-    assert_equal([2, 10], map[6][1])
-    assert_equal(9, map[6][2])
+    assert_equal([2, 18], sensors[0][0])
+    assert_equal(7, sensors[0][1])
+
+    assert_equal([8, 7], sensors[6][0])
+    assert_equal(9, sensors[6][1])
+
+    assert_equal([-2, 15], beacons[0])
+    assert_equal([2, 10], beacons[3])
   end
 
   def test_y_intersect
-    map = @bez.read_map(INPUT)
+    sensors, = @bez.read_map(INPUT)
 
-    assert_equal(
-      [-2, -1, 0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-      @bez.y_intersect(map, 10).sort
-    )
+    assert_equal([(-2..24)], @bez.y_intersect(sensors, 10).sort)
   end
 
   def test_part1
