@@ -29,7 +29,8 @@ module AOC2022
     'monkey_in_the_middle',
     'hill_climbing_algorithm',
     'distress_signal',
-    'regolith_reservoir'
+    'regolith_reservoir',
+    'beacon_exclusion_zone'
   ].freeze
 
   def self.class_from_day(day)
