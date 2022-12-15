@@ -50,11 +50,19 @@ class AOC2022::BeaconExclusionZoneTest < Minitest::Test
   def test_y_intersect
     sensors, = @bez.read_map(INPUT)
 
-    assert_equal([(-2..24)], @bez.y_intersect(sensors, 10).sort)
+    assert_equal(
+      [(12..12), (2..14), (2..2), (-2..2), (16..24), (14..18)],
+      @bez.y_intersect(sensors, 10)
+    )
   end
 
   def test_part1
     @bez.setup(INPUT)
     assert_equal(26, @bez.part1(10))
+  end
+
+  def test_part2
+    @bez.setup(INPUT)
+    assert_equal(56_000_011, @bez.part2)
   end
 end

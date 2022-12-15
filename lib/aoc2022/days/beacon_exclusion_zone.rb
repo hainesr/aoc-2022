@@ -18,6 +18,15 @@ module AOC2022
       merge(y_intersect(@sensors, y)).sum(&:size) - @beacons.count { _1[1] == y }
     end
 
+    def part2
+      4_000_000.times do |y|
+        ranges = merge(y_intersect(@sensors, y))
+        next if ranges.size == 1
+
+        return ((ranges[0].max + 1) * 4_000_000) + y
+      end
+    end
+
     def y_intersect(map, y)
       map.map do |((sx, sy), distance)|
         y_range = ((sy - distance)..(sy + distance))
