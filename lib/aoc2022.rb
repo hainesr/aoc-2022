@@ -30,7 +30,8 @@ module AOC2022
     'hill_climbing_algorithm',
     'distress_signal',
     'regolith_reservoir',
-    'beacon_exclusion_zone'
+    'beacon_exclusion_zone',
+    'proboscidea_volcanium'
   ].freeze
 
   def self.class_from_day(day)
