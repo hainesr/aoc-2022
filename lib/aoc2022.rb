@@ -33,7 +33,9 @@ module AOC2022
     'beacon_exclusion_zone',
     'proboscidea_volcanium',
     nil,
-    'boiling_boulders'
+    'boiling_boulders',
+    nil,
+    'grove_positioning_system'
   ].freeze
 
   def self.class_from_day(day)
