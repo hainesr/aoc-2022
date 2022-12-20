@@ -43,4 +43,9 @@ class AOC2022::GrovePositioningSystemTest < Minitest::Test
     @gps.setup(INPUT)
     assert_equal(3, @gps.part1)
   end
+
+  def test_part2
+    @gps.setup(INPUT)
+    assert_equal(1_623_178_306, @gps.part2)
+  end
 end

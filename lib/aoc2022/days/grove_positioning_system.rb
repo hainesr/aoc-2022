@@ -9,6 +9,8 @@
 require 'aoc2022'
 
 module AOC2022
+  DECRYPTION_KEY = 811_589_153
+
   class GrovePositioningSystem < Day
     def setup(input = read_input_file.chomp)
       @coords = read_coords(input)
@@ -16,6 +18,23 @@ module AOC2022
 
     def part1
       coords = mix(@coords.dup)
+
+      i = coords.find_index { |(_, c)| c.zero? }
+      x = coords[(i + 1000) % coords.size][1]
+      y = coords[(i + 2000) % coords.size][1]
+      z = coords[(i + 3000) % coords.size][1]
+
+      x + y + z
+    end
+
+    def part2
+      coords = @coords.map do |(i, c)|
+        [i, c * DECRYPTION_KEY]
+      end
+
+      10.times do
+        coords = mix(coords)
+      end
 
       i = coords.find_index { |(_, c)| c.zero? }
       x = coords[(i + 1000) % coords.size][1]
