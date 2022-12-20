@@ -31,7 +31,9 @@ module AOC2022
     'distress_signal',
     'regolith_reservoir',
     'beacon_exclusion_zone',
-    'proboscidea_volcanium'
+    'proboscidea_volcanium',
+    nil,
+    'boiling_boulders'
   ].freeze
 
   def self.class_from_day(day)
