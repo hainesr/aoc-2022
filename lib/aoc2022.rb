@@ -35,7 +35,8 @@ module AOC2022
     nil,
     'boiling_boulders',
     nil,
-    'grove_positioning_system'
+    'grove_positioning_system',
+    'monkey_math'
   ].freeze
 
   def self.class_from_day(day)
