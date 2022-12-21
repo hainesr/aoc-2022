@@ -59,4 +59,9 @@ class AOC2022::MonkeyMathTest < Minitest::Test
     @mm.setup(INPUT)
     assert_equal(152, @mm.part1)
   end
+
+  def test_part2
+    @mm.setup(INPUT)
+    assert_equal(301, @mm.part2)
+  end
 end
