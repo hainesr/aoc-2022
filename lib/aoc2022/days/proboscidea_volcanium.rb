@@ -22,10 +22,30 @@ module AOC2022
       find_paths(@map, @rates, 30).last.max
     end
 
+    def part2 # rubocop:disable Metrics/AbcSize
+      paths, pressures = find_paths(@map, @rates, 26)
+      paths = paths.zip(pressures).sort_by(&:last).reverse
+
+      i = 1
+      i += 1 while paths[i][0].any? { paths[0][0].include?(_1) }
+
+      max = paths[0][1] + paths[i][1]
+
+      (1..i).each do |x|
+        ((x + 1)..(i + 1)).each do |y|
+          next if paths[y][0].any? { paths[x][0].include?(_1) }
+
+          max = [max, (paths[x][1] + paths[y][1])].max
+        end
+      end
+
+      max
+    end
+
     def find_paths(map, rates, time)
       pressures = []
       paths = []
-      stack = [[time, 0, ['AA']]]
+      stack = [[time, 0, [ROOT_NODE]]]
 
       until stack.empty?
         t, pres, path = stack.pop
@@ -33,7 +53,7 @@ module AOC2022
         new_path = []
 
         map[current_pos].each do |node, distance|
-          next if distance > t - 2 || path.include?(node)
+          next if distance > t - 1 || path.include?(node)
 
           nt = t - distance - 1
           npres = pres + (rates[node] * nt)
