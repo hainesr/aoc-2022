@@ -37,7 +37,7 @@ module AOC2022
     nil,
     'grove_positioning_system',
     'monkey_math',
-    nil,
+    'monkey_map',
     nil,
     nil,
     'full_of_hot_air'
